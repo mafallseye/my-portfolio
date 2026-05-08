@@ -38,10 +38,11 @@
 
         <!-- Formulaire -->
          <form 
-    action="https://formspree.io" 
-    method="POST" 
-    class="space-y-4"
-  >
+        name="contact" 
+        method="POST" 
+        data-netlify="true"
+        class="space-y-4"
+      >
     <div>
       <label class="block text-sm font-medium text-slate-400 mb-2">Nom complet</label>
       <input type="text" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Votre nom">
