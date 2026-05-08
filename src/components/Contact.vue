@@ -37,41 +37,40 @@
         </div>
 
         <!-- Formulaire -->
-         <form 
-        name="contact" 
-        method="POST" 
-        data-netlify="true"
-        class="space-y-4"
-      >
-    <div>
-      <label class="block text-sm font-medium text-slate-400 mb-2">Nom complet</label>
-      <input type="text" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Votre nom">
-    </div>
-    
-    <div>
-      <label class="block text-sm font-medium text-slate-400 mb-2">Email</label>
-      <input type="email" name="_replyto" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="votre@email.com">
-    </div>
-    
-    <div>
-      <label class="block text-sm font-medium text-slate-400 mb-2">Message</label>
-      <textarea name="message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Parlez-moi de votre projet..."></textarea>
-    </div>
+     <form 
+          name="contact" 
+          method="POST" 
+          data-netlify="true"
+        >
+          <!-- Cette ligne est invisible mais indispensable pour Netlify -->
+          <input type="hidden" name="form-name" value="contact" />
 
-    <!-- Champ caché pour éviter le spam -->
-    <input type="text" name="_gotcha" style="display:none">
+          <div class="grid grid-cols-1 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-slate-400 mb-2">Nom complet</label>
+              <input type="text" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-slate-400 mb-2">Email</label>
+              <input type="email" name="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-slate-400 mb-2">Message</label>
+              <textarea name="message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500"></textarea>
+            </div>
 
-    <button type="submit" class="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold shadow-lg shadow-blue-500/20 transition-all">
-      Envoyer le message
-    </button>
-  </form>
+            <button type="submit" class="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold shadow-lg shadow-blue-500/20 transition-all">
+              Envoyer le message
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-const handleSubmit = () => {
-  alert("Merci ! Ce formulaire est prêt à être relié à un service comme Formspree ou un backend Laravel.");
-};
+// On laisse le script vide pour ne pas interférer avec l'envoi HTML standard
 </script>
