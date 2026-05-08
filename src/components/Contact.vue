@@ -41,7 +41,7 @@
   name="contact" 
   method="POST" 
   data-netlify="true"
-  action="/"
+    action="/index.html"
 >
           <!-- Cette ligne est invisible mais indispensable pour Netlify -->
           <input type="hidden" name="form-name" value="contact" />
