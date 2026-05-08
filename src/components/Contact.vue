@@ -37,25 +37,32 @@
         </div>
 
         <!-- Formulaire -->
-    <form @submit.prevent="submitForm" class="space-y-4">
+         <form 
+    action="https://formspree.io" 
+    method="POST" 
+    class="space-y-4"
+  >
     <div>
       <label class="block text-sm font-medium text-slate-400 mb-2">Nom complet</label>
-      <input v-model="formData.name" type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors">
+      <input type="text" name="name" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Votre nom">
     </div>
+    
     <div>
       <label class="block text-sm font-medium text-slate-400 mb-2">Email</label>
-      <input v-model="formData.email" type="email" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors">
+      <input type="email" name="_replyto" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="votre@email.com">
     </div>
+    
     <div>
       <label class="block text-sm font-medium text-slate-400 mb-2">Message</label>
-      <textarea v-model="formData.message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors"></textarea>
+      <textarea name="message" rows="4" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors" placeholder="Parlez-moi de votre projet..."></textarea>
     </div>
 
-    <button type="submit" :disabled="status === 'sending'" class="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition-all disabled:opacity-50">
-      {{ status === 'sending' ? 'Envoi en cours...' : 'Envoyer le message' }}
+    <!-- Champ caché pour éviter le spam -->
+    <input type="text" name="_gotcha" style="display:none">
+
+    <button type="submit" class="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold shadow-lg shadow-blue-500/20 transition-all">
+      Envoyer le message
     </button>
-    
-    <p v-if="status === 'success'" class="mt-4 text-emerald-400">Message envoyé avec succès !</p>
   </form>
       </div>
     </div>
@@ -63,31 +70,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
-const formData = ref({ name: '', email: '', message: '' })
-const status = ref('')
-
-const submitForm = async () => {
-  status.value = 'sending'
-  
-  try {
-    const response = await fetch("https://formspree.io", {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData.value)
-    })
-
-    if (response.ok) {
-      status.value = 'success'
-      formData.value = { name: '', email: '', message: '' } // Reset du formulaire
-    } else {
-      status.value = 'error'
-      alert("Erreur lors de l'envoi.")
-    }
-  } catch (error) {
-    status.value = 'error'
-    console.error(error)
-  }
-}
+const handleSubmit = () => {
+  alert("Merci ! Ce formulaire est prêt à être relié à un service comme Formspree ou un backend Laravel.");
+};
 </script>
