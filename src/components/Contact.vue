@@ -38,10 +38,11 @@
 
         <!-- Formulaire -->
      <form 
-          name="contact" 
-          method="POST" 
-          data-netlify="true"
-        >
+  name="contact" 
+  method="POST" 
+  data-netlify="true"
+  action="/"
+>
           <!-- Cette ligne est invisible mais indispensable pour Netlify -->
           <input type="hidden" name="form-name" value="contact" />
 
