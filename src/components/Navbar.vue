@@ -14,7 +14,7 @@
       </div>
 
       <!-- Bouton Contact -->
-      <a href="mailto:ton-email@gmail.com" 
+      <a href="mailto:maguettefseye@gmail.com" 
          class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-full transition-all shadow-lg shadow-blue-500/20">
         Me contacter
       </a>
